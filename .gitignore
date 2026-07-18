@@ -1,0 +1,15 @@
+# Regenerable source and fact-level data. Retrieve SRC-001 from the source register,
+# then rebuild these files with the documented pipeline.
+01_inputs/data/raw/public/uci-online-retail/
+02_analysis/data/processed/fact_sales.csv
+02_analysis/data/processed/fact_web_sessions.csv
+
+# Local Python runtime artefacts.
+02_analysis/environment/vendor/
+**/__pycache__/
+*.pyc
+
+# Superseded review artefacts and local render scratch space.
+04_deliverables/review/*
+!04_deliverables/review/.gitkeep
+tmp/

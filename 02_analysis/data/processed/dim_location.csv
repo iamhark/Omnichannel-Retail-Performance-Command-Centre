@@ -1,0 +1,47 @@
+location_id,location_name,city,region,country,store_format,location_type,is_simulated,source_system,simulation_version
+COUNTRY-australia,Australia,,Australia,Australia,Online market,Country,False,UCI Online Retail,
+COUNTRY-austria,Austria,,Austria,Austria,Online market,Country,False,UCI Online Retail,
+COUNTRY-bahrain,Bahrain,,Bahrain,Bahrain,Online market,Country,False,UCI Online Retail,
+COUNTRY-belgium,Belgium,,Belgium,Belgium,Online market,Country,False,UCI Online Retail,
+COUNTRY-brazil,Brazil,,Brazil,Brazil,Online market,Country,False,UCI Online Retail,
+COUNTRY-canada,Canada,,Canada,Canada,Online market,Country,False,UCI Online Retail,
+COUNTRY-channel-islands,Channel Islands,,Channel Islands,Channel Islands,Online market,Country,False,UCI Online Retail,
+COUNTRY-cyprus,Cyprus,,Cyprus,Cyprus,Online market,Country,False,UCI Online Retail,
+COUNTRY-czech-republic,Czech Republic,,Czech Republic,Czech Republic,Online market,Country,False,UCI Online Retail,
+COUNTRY-denmark,Denmark,,Denmark,Denmark,Online market,Country,False,UCI Online Retail,
+COUNTRY-eire,EIRE,,EIRE,EIRE,Online market,Country,False,UCI Online Retail,
+COUNTRY-european-community,European Community,,European Community,European Community,Online market,Country,False,UCI Online Retail,
+COUNTRY-finland,Finland,,Finland,Finland,Online market,Country,False,UCI Online Retail,
+COUNTRY-france,France,,France,France,Online market,Country,False,UCI Online Retail,
+COUNTRY-germany,Germany,,Germany,Germany,Online market,Country,False,UCI Online Retail,
+COUNTRY-greece,Greece,,Greece,Greece,Online market,Country,False,UCI Online Retail,
+COUNTRY-hong-kong,Hong Kong,,Hong Kong,Hong Kong,Online market,Country,False,UCI Online Retail,
+COUNTRY-iceland,Iceland,,Iceland,Iceland,Online market,Country,False,UCI Online Retail,
+COUNTRY-israel,Israel,,Israel,Israel,Online market,Country,False,UCI Online Retail,
+COUNTRY-italy,Italy,,Italy,Italy,Online market,Country,False,UCI Online Retail,
+COUNTRY-japan,Japan,,Japan,Japan,Online market,Country,False,UCI Online Retail,
+COUNTRY-lebanon,Lebanon,,Lebanon,Lebanon,Online market,Country,False,UCI Online Retail,
+COUNTRY-lithuania,Lithuania,,Lithuania,Lithuania,Online market,Country,False,UCI Online Retail,
+COUNTRY-malta,Malta,,Malta,Malta,Online market,Country,False,UCI Online Retail,
+COUNTRY-netherlands,Netherlands,,Netherlands,Netherlands,Online market,Country,False,UCI Online Retail,
+COUNTRY-norway,Norway,,Norway,Norway,Online market,Country,False,UCI Online Retail,
+COUNTRY-poland,Poland,,Poland,Poland,Online market,Country,False,UCI Online Retail,
+COUNTRY-portugal,Portugal,,Portugal,Portugal,Online market,Country,False,UCI Online Retail,
+COUNTRY-rsa,RSA,,RSA,RSA,Online market,Country,False,UCI Online Retail,
+COUNTRY-saudi-arabia,Saudi Arabia,,Saudi Arabia,Saudi Arabia,Online market,Country,False,UCI Online Retail,
+COUNTRY-singapore,Singapore,,Singapore,Singapore,Online market,Country,False,UCI Online Retail,
+COUNTRY-spain,Spain,,Spain,Spain,Online market,Country,False,UCI Online Retail,
+COUNTRY-sweden,Sweden,,Sweden,Sweden,Online market,Country,False,UCI Online Retail,
+COUNTRY-switzerland,Switzerland,,Switzerland,Switzerland,Online market,Country,False,UCI Online Retail,
+COUNTRY-usa,USA,,USA,USA,Online market,Country,False,UCI Online Retail,
+COUNTRY-united-arab-emirates,United Arab Emirates,,United Arab Emirates,United Arab Emirates,Online market,Country,False,UCI Online Retail,
+COUNTRY-united-kingdom,United Kingdom,,United Kingdom,United Kingdom,Online market,Country,False,UCI Online Retail,
+COUNTRY-unspecified,Unspecified,,Unspecified,Unspecified,Online market,Country,False,UCI Online Retail,
+STORE-LONDON-CITY,London City,London,England,United Kingdom,Flagship,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-MANCHESTER-CITY,Manchester City,Manchester,England,United Kingdom,Large,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-BIRMINGHAM-CITY,Birmingham City,Birmingham,England,United Kingdom,Large,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-LEEDS-CITY,Leeds City,Leeds,England,United Kingdom,Standard,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-GLASGOW-CITY,Glasgow City,Glasgow,Scotland,United Kingdom,Standard,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-BRISTOL-CITY,Bristol City,Bristol,England,United Kingdom,Standard,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-LIVERPOOL-CITY,Liverpool City,Liverpool,England,United Kingdom,Standard,Physical store,True,Simulated extension,omnichannel-sim-v1
+STORE-EDINBURGH-CITY,Edinburgh City,Edinburgh,Scotland,United Kingdom,Standard,Physical store,True,Simulated extension,omnichannel-sim-v1

@@ -1,0 +1,7 @@
+"scope","metric","postgres_value","reference_value","variance","status"
+"2011-01_to_2011-11","retention_rate",0.6574811813,0.6574811813,0E-10,"pass"
+"2011-05","net_revenue",1196818.6590000000,1196818.6590,0E-10,"pass"
+"location=STORE-MANCHESTER-CITY","net_revenue",620233.2390000000,620233.2390,0E-10,"pass"
+"overall","gross_margin",6213555.4502000000,6213555.4502,0E-10,"pass"
+"overall","net_revenue",13275371.3875000000,13275371.3875,0E-10,"pass"
+"sales_channel=SALES_ONLINE","net_revenue",9748131.0740000000,9748131.0740,0E-10,"pass"

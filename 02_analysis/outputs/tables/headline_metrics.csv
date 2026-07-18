@@ -1,0 +1,21 @@
+metric,value,unit,provenance,output_source
+Total net revenue,13275371.3875,GBP,Public core plus simulated store extension,monthly_performance.csv
+Total gross margin,6213555.4502,GBP,Uses simulated product costs,monthly_performance.csv
+Total contribution margin,2842347.8302,GBP,Uses simulated costs and campaign spend,monthly_performance.csv
+Complete-month average retention,0.6574811813,rate,Public core plus simulated store extension,customer_retention.csv
+Complete-month median retention,0.6496586418,rate,Public core plus simulated store extension,customer_retention.csv
+Champions customers,714,customers,Public core plus simulated store extension,customer_rfm.csv
+Champions customer share,0.1633493478,rate,Public core plus simulated store extension,customer_rfm.csv
+Champions monetary share,0.4613688252,rate,Public core plus simulated store extension,customer_rfm.csv
+At Risk plus Lost customers,1335,customers,Public core plus simulated store extension,customer_rfm.csv
+At Risk plus Lost customer share,0.3054221002,rate,Public core plus simulated store extension,customer_rfm.csv
+Manchester versus large-store peer,94542.4520,GBP,Simulated store extension,product_store_performance.csv
+Birmingham versus large-store peer,-94542.4520,GBP,Simulated store extension,product_store_performance.csv
+Leeds versus standard-store peer,44975.7220,GBP,Simulated store extension,product_store_performance.csv
+Bristol versus standard-store peer,-27232.5360,GBP,Simulated store extension,product_store_performance.csv
+Email campaign ROI,0.5244,rate,Simulated sessions spend costs and attribution,campaign_efficiency.csv
+Paid Search campaign ROI,0.5105,rate,Simulated sessions spend costs and attribution,campaign_efficiency.csv
+Social campaign ROI,-0.4700,rate,Simulated sessions spend costs and attribution,campaign_efficiency.csv
+Email customer acquisition cost,167.6864,GBP per conversion,Simulated sessions spend and attribution,campaign_efficiency.csv
+Paid Search customer acquisition cost,165.0991,GBP per conversion,Simulated sessions spend and attribution,campaign_efficiency.csv
+Social customer acquisition cost,421.4707,GBP per conversion,Simulated sessions spend and attribution,campaign_efficiency.csv

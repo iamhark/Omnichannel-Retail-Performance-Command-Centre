@@ -1,0 +1,8 @@
+channel_id,channel_name,channel_type,is_simulated,source_system,simulation_version
+SALES_ONLINE,Online,Sales,False,Derived from public source,
+SALES_STORE,Physical Store,Sales,True,Simulated extension,omnichannel-sim-v1
+MKT_PAID_SEARCH,Paid Search,Marketing,True,Simulated extension,omnichannel-sim-v1
+MKT_ORGANIC_SEARCH,Organic Search,Marketing,True,Simulated extension,omnichannel-sim-v1
+MKT_EMAIL,Email,Marketing,True,Simulated extension,omnichannel-sim-v1
+MKT_SOCIAL,Social,Marketing,True,Simulated extension,omnichannel-sim-v1
+MKT_DIRECT,Direct,Marketing,True,Simulated extension,omnichannel-sim-v1

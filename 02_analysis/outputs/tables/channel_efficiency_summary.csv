@@ -1,0 +1,4 @@
+channel_id,impressions,clicks,spend,sessions,conversions,attributed_revenue,attributed_gross_margin,attributed_orders,channel_name,channel_type,ctr,conversion_rate,roas,roi,cac,provenance
+MKT_EMAIL,12077238,407058,409825.61,54410,2444,1308493.46,624740.2938,2444,Email,Marketing,0.03370456059572561,0.04491821356368315,3.192805495976691,0.5244052068878761,167.68641980360064,"Deterministic simulated sessions, spend, costs and attribution"
+MKT_PAID_SEARCH,11925043,400397,410931.68,71944,2489,1296882.112,620726.1147,2489,Paid Search,Marketing,0.033576147272592644,0.034596352718781274,3.1559555398600567,0.5105336115726099,165.09910807553234,"Deterministic simulated sessions, spend, costs and attribution"
+MKT_SOCIAL,11448149,374274,383538.33,42077,910,465062.43,203288.7021,910,Social,Marketing,0.032692970715178495,0.021627017135252037,1.2125578948002407,-0.46996509553556226,421.47069230769233,"Deterministic simulated sessions, spend, costs and attribution"

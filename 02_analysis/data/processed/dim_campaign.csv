@@ -1,0 +1,13 @@
+campaign_id,campaign_name,channel_id,start_date,end_date,objective,source_system,is_simulated,simulation_version
+CMP-PAID_SEARCH-01,Paid Search Campaign 1,MKT_PAID_SEARCH,2010-12-01 00:00:00,2011-03-03 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-PAID_SEARCH-02,Paid Search Campaign 2,MKT_PAID_SEARCH,2011-03-04 00:00:00,2011-06-05 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-PAID_SEARCH-03,Paid Search Campaign 3,MKT_PAID_SEARCH,2011-06-06 00:00:00,2011-09-06 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-PAID_SEARCH-04,Paid Search Campaign 4,MKT_PAID_SEARCH,2011-09-07 00:00:00,2011-12-09 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-EMAIL-01,Email Campaign 1,MKT_EMAIL,2010-12-01 00:00:00,2011-03-03 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-EMAIL-02,Email Campaign 2,MKT_EMAIL,2011-03-04 00:00:00,2011-06-05 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-EMAIL-03,Email Campaign 3,MKT_EMAIL,2011-06-06 00:00:00,2011-09-06 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-EMAIL-04,Email Campaign 4,MKT_EMAIL,2011-09-07 00:00:00,2011-12-09 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-SOCIAL-01,Social Campaign 1,MKT_SOCIAL,2010-12-01 00:00:00,2011-03-03 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-SOCIAL-02,Social Campaign 2,MKT_SOCIAL,2011-03-04 00:00:00,2011-06-05 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-SOCIAL-03,Social Campaign 3,MKT_SOCIAL,2011-06-06 00:00:00,2011-09-06 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1
+CMP-SOCIAL-04,Social Campaign 4,MKT_SOCIAL,2011-09-07 00:00:00,2011-12-09 00:00:00,Acquire or reactivate customers,Simulated extension,True,omnichannel-sim-v1

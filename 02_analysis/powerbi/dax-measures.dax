@@ -1,0 +1,210 @@
+// Core sales measures
+Net Revenue = SUM ( fact_sales[net_revenue] )
+
+COGS = SUM ( fact_sales[cogs] )
+
+Gross Margin = [Net Revenue] - [COGS]
+
+Gross Margin % = DIVIDE ( [Gross Margin], [Net Revenue] )
+
+Fulfilment Cost = SUM ( fact_sales[fulfilment_cost] )
+
+Campaign Spend = SUM ( fact_campaign_spend[spend] )
+
+Contribution Margin = [Gross Margin] - [Fulfilment Cost] - [Campaign Spend]
+
+Contribution Margin % = DIVIDE ( [Contribution Margin], [Net Revenue] )
+
+Revenue Previous Month =
+CALCULATE ( [Net Revenue], DATEADD ( dim_date[full_date], -1, MONTH ) )
+
+Revenue MoM % = DIVIDE ( [Net Revenue] - [Revenue Previous Month], [Revenue Previous Month] )
+
+Completed Orders =
+CALCULATE (
+    DISTINCTCOUNT ( fact_sales[order_id] ),
+    fact_sales[is_return] = FALSE (),
+    fact_sales[net_revenue] > 0
+)
+
+Average Order Value = DIVIDE ( [Net Revenue], [Completed Orders] )
+
+Return Lines = CALCULATE ( COUNTROWS ( fact_sales ), fact_sales[is_return] = TRUE () )
+
+Return Line Rate = DIVIDE ( [Return Lines], COUNTROWS ( fact_sales ) )
+
+// Customer measures exclude anonymous rows
+Active Customers =
+CALCULATE (
+    DISTINCTCOUNT ( fact_sales[customer_key] ),
+    NOT ISBLANK ( fact_sales[customer_key] ),
+    fact_sales[is_return] = FALSE (),
+    fact_sales[net_revenue] > 0
+)
+
+Retained Customers =
+VAR CurrentCustomers =
+    CALCULATETABLE ( VALUES ( fact_sales[customer_key] ), NOT ISBLANK ( fact_sales[customer_key] ), fact_sales[is_return] = FALSE () )
+VAR PriorCustomers =
+    CALCULATETABLE (
+        VALUES ( fact_sales[customer_key] ),
+        NOT ISBLANK ( fact_sales[customer_key] ),
+        fact_sales[is_return] = FALSE (),
+        DATEADD ( dim_date[full_date], -1, MONTH )
+    )
+RETURN COUNTROWS ( INTERSECT ( CurrentCustomers, PriorCustomers ) )
+
+Prior Month Active Customers =
+CALCULATE ( [Active Customers], DATEADD ( dim_date[full_date], -1, MONTH ) )
+
+Monthly Retention Rate =
+VAR MaxSalesDate =
+    CALCULATE ( MAX ( dim_date[full_date] ), REMOVEFILTERS ( dim_date ) )
+VAR LastCompleteMonthEnd = EOMONTH ( MaxSalesDate, -1 )
+VAR ContextMonths = VALUES ( dim_date[month_start] )
+VAR HasMonthFilter =
+    ISFILTERED ( dim_date[month_start] ) || ISFILTERED ( dim_date[full_date] )
+RETURN
+    IF (
+        HasMonthFilter,
+        CALCULATE (
+            AVERAGE ( v_customer_retention[retention_rate] ),
+            TREATAS ( ContextMonths, v_customer_retention[month_start] )
+        ),
+        CALCULATE (
+            AVERAGE ( v_customer_retention[retention_rate] ),
+            FILTER (
+                ALL ( v_customer_retention ),
+                v_customer_retention[month_start] <= LastCompleteMonthEnd
+                    && NOT ISBLANK ( v_customer_retention[retention_rate] )
+            )
+        )
+    )
+
+Repeat Customers =
+COUNTROWS (
+    FILTER (
+        VALUES ( fact_sales[customer_key] ),
+        NOT ISBLANK ( fact_sales[customer_key] ) && CALCULATE ( [Completed Orders] ) >= 2
+    )
+)
+
+Repeat Customer Rate = DIVIDE ( [Repeat Customers], [Active Customers] )
+
+// The combined repeat rate is 100% because the deterministic store extension
+// assigns repeat store orders across the identified customer base. Use the
+// public-core version for a decision-useful observed repeat-purchase KPI.
+Public Core Active Customers =
+CALCULATE ( [Active Customers], fact_sales[source_system] = "UCI Online Retail" )
+
+Public Core Repeat Customers =
+COUNTROWS (
+    FILTER (
+        CALCULATETABLE (
+            VALUES ( fact_sales[customer_key] ),
+            fact_sales[source_system] = "UCI Online Retail"
+        ),
+        NOT ISBLANK ( fact_sales[customer_key] )
+            && CALCULATE (
+                [Completed Orders],
+                fact_sales[source_system] = "UCI Online Retail"
+            ) >= 2
+    )
+)
+
+Public Core Repeat Customer Rate =
+DIVIDE ( [Public Core Repeat Customers], [Public Core Active Customers] )
+
+Observed Historical CLV =
+AVERAGEX (
+    FILTER ( VALUES ( fact_sales[customer_key] ), NOT ISBLANK ( fact_sales[customer_key] ) ),
+    CALCULATE ( [Gross Margin] - [Fulfilment Cost] )
+)
+
+// Marketing measures
+Sessions = DISTINCTCOUNT ( fact_web_sessions[session_id] )
+
+Conversions = CALCULATE ( COUNTROWS ( fact_web_sessions ), fact_web_sessions[converted] = TRUE () )
+
+Session Conversion Rate = DIVIDE ( [Conversions], [Sessions] )
+
+Attributed Revenue =
+CALCULATE ( [Net Revenue], NOT ISBLANK ( fact_sales[campaign_key] ) )
+
+Attributed Gross Margin =
+CALCULATE ( [Gross Margin], NOT ISBLANK ( fact_sales[campaign_key] ) )
+
+Campaign ROAS = DIVIDE ( [Attributed Revenue], [Campaign Spend] )
+
+Campaign ROI = DIVIDE ( [Attributed Gross Margin] - [Campaign Spend], [Campaign Spend] )
+
+Customer Acquisition Cost = DIVIDE ( [Campaign Spend], [Conversions] )
+
+// Store peer comparison
+Store Peer Revenue =
+VAR CurrentFormat = SELECTEDVALUE ( dim_location[store_format] )
+RETURN
+    IF (
+        NOT ISBLANK ( CurrentFormat ),
+        AVERAGEX (
+            FILTER (
+                ALL ( dim_location ),
+                dim_location[location_type] = "Physical store"
+                    && dim_location[store_format] = CurrentFormat
+            ),
+            CALCULATE ( [Net Revenue] )
+        )
+    )
+
+Store Variance = [Net Revenue] - [Store Peer Revenue]
+
+Store Variance % = DIVIDE ( [Store Variance], [Store Peer Revenue] )
+
+Champions Customers =
+CALCULATE (
+    DISTINCTCOUNT ( v_customer_rfm[customer_key] ),
+    v_customer_rfm[rfm_segment] = "Champions"
+)
+
+Champions Monetary Share =
+DIVIDE (
+    CALCULATE ( SUM ( v_customer_rfm[monetary] ), v_customer_rfm[rfm_segment] = "Champions" ),
+    CALCULATE ( SUM ( v_customer_rfm[monetary] ), REMOVEFILTERS ( v_customer_rfm[rfm_segment] ) )
+)
+
+At Risk and Lost Customers =
+CALCULATE (
+    DISTINCTCOUNT ( v_customer_rfm[customer_key] ),
+    v_customer_rfm[rfm_segment] IN { "At Risk", "Lost" }
+)
+
+At Risk and Lost Customer Share =
+DIVIDE (
+    [At Risk and Lost Customers],
+    CALCULATE (
+        DISTINCTCOUNT ( v_customer_rfm[customer_key] ),
+        REMOVEFILTERS ( v_customer_rfm[rfm_segment] )
+    )
+)
+
+Latest Complete Month Revenue =
+VAR MaxSalesDate = CALCULATE ( MAX ( dim_date[full_date] ), REMOVEFILTERS ( dim_date ) )
+VAR LastCompleteMonthEnd = EOMONTH ( MaxSalesDate, -1 )
+VAR LastCompleteMonthStart = DATE ( YEAR ( LastCompleteMonthEnd ), MONTH ( LastCompleteMonthEnd ), 1 )
+RETURN
+    CALCULATE (
+        [Net Revenue],
+        DATESBETWEEN ( dim_date[full_date], LastCompleteMonthStart, LastCompleteMonthEnd )
+    )
+
+Latest Complete Month Revenue MoM % =
+VAR MaxSalesDate = CALCULATE ( MAX ( dim_date[full_date] ), REMOVEFILTERS ( dim_date ) )
+VAR CurrentEnd = EOMONTH ( MaxSalesDate, -1 )
+VAR CurrentStart = DATE ( YEAR ( CurrentEnd ), MONTH ( CurrentEnd ), 1 )
+VAR PriorEnd = EOMONTH ( CurrentEnd, -1 )
+VAR PriorStart = DATE ( YEAR ( PriorEnd ), MONTH ( PriorEnd ), 1 )
+VAR CurrentRevenue =
+    CALCULATE ( [Net Revenue], DATESBETWEEN ( dim_date[full_date], CurrentStart, CurrentEnd ) )
+VAR PriorRevenue =
+    CALCULATE ( [Net Revenue], DATESBETWEEN ( dim_date[full_date], PriorStart, PriorEnd ) )
+RETURN DIVIDE ( CurrentRevenue - PriorRevenue, PriorRevenue )

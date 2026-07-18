@@ -1,0 +1,4 @@
+priority,domain,entity,metric,value,comparison,comparison_value,recommended_action,provenance
+1,Customer,At Risk + Lost,Customer share,0.30542210020590255,Champions monetary share,0.46144067706342623,Separate value protection from capped reactivation,Public core plus simulated store extension
+2,Store,Birmingham City,Peer variance,-0.17984422466205405,Manchester City,0.17984422466205408,"Diagnose matched-format category, returns and conversion gaps",Deterministic simulated store extension
+3,Marketing,Social,Campaign ROI,-0.46996509553556226,Email,0.5244052068878761,Reallocate with a holdout test for incrementality,Deterministic simulated marketing extension

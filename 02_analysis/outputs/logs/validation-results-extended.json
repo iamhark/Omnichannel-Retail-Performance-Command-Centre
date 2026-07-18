@@ -1,0 +1,33 @@
+{
+  "status": "pass",
+  "tests": {
+    "raw_checksum": true,
+    "sales_primary_key": true,
+    "session_primary_key": true,
+    "spend_primary_key": true,
+    "expected_store_rows": true,
+    "expected_session_rows": true,
+    "revenue_arithmetic": true,
+    "provenance_complete": true,
+    "simulation_version_complete": true,
+    "product_fk": true,
+    "location_fk": true,
+    "channel_fk": true,
+    "campaign_fk": true,
+    "attribution_order_exists": true,
+    "attribution_window": true,
+    "positive_campaign_spend": true,
+    "retention_bounds": true,
+    "rfm_excludes_anonymous": true,
+    "campaign_roi_formula": true
+  },
+  "metrics": {
+    "fact_sales_rows": 684129,
+    "web_session_rows": 300000,
+    "campaign_spend_rows": 1122,
+    "revenue_arithmetic_max_abs_error": 1.4551915228366852e-11,
+    "attributed_orders_checked": 9892,
+    "attribution_lag_min_days": 0,
+    "attribution_lag_max_days": 6
+  }
+}

@@ -1,0 +1,7 @@
+scenario,metric,postgres_value,powerbi_value,variance,tolerance,status
+overall,net_revenue,13275371.3875,13275371.3875,0.0000,0.01,pass
+overall,gross_margin,6213555.4502,6213555.4502,0.0000,0.01,pass
+2011-05,revenue,1196818.6590,1196818.6590,0.0000,0.01,pass
+Manchester,revenue,620233.2390,620233.2390,0.0000,0.01,pass
+Online,revenue,9748131.0740,9748131.0740,0.0000,0.01,pass
+2011-01_to_2011-11,retention_rate,0.6574811813,0.6574811813,0.0000000000,0.001,pass
